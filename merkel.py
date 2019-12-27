@@ -1,5 +1,6 @@
 import hashlib
 
+
 def iterate_elements(elements):
     x = []
     for i in range(len(elements)/2):
@@ -11,6 +12,7 @@ def iterate_elements(elements):
         newhash = hashlib.sha256(hasha + hashb).hexdigest()
         x.append(newhash)
     return x
+
 
 def tree(elements):
     elements = [hashlib.sha256(str(x)).hexdigest() for x in elements]

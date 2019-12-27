@@ -7,8 +7,10 @@ from pycoin.serialize import b2h_rev
 import json
 import requests
 
+
 def spendable_to_legible(spendable):
     return b2h_rev(spendable.previous_hash) + ":" + str(spendable.previous_index)
+
 
 def write_opreturn(bitcoin_address, bitcoin_private_key, raw_message, fee=5000, push=False):
     message = hexlify(raw_message.encode()).decode('utf8')
@@ -37,6 +39,7 @@ def write_opreturn(bitcoin_address, bitcoin_private_key, raw_message, fee=5000, 
             pushtx(tx.as_hex())
     else:
         print "INADEQUATE FUNDS"
+
 
 def pushtx(rawtx):
     url = "http://btc.blockr.io/api/v1/tx/push"
